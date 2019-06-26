@@ -1,19 +1,20 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
+
     {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Russel</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
     <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
     <style>
@@ -34,25 +35,25 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="{% url 'home' %}">RUSSEL</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{% static 'SAIFUL_ISLAM_CV.pdf' %}">Resume<span class="sr-only">(current)</span></a>
+
+        <li class="nav-item">
+        <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="https://twitter.com/RusselYWNWA">Twitter</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
-      </li>
+
 
     </ul>
   </div>
@@ -61,51 +62,37 @@
 
 <main role="main">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">HI, I'm Russel</h1>
-      <p class="lead text-muted">Django Web Developer</p>
-      <p>
-        <a href="mailto:russelcucse@gmail.com" class="btn btn-primary my-2">@Mail me</a>
-
-      </p>
-
-      <img src="{% static '10974665_10202352493813028_7425111993825741957_o.jpg'%}" height="400" width="400" />
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
     <div class="container">
 
-      <div class="row">
+        <h1 class="text-center pt-3">{{ blog.title}}</h1>
 
-          {% for job in jobs.all %}
+        <p class="text-center">{{ blog.pub_date }}</p>
 
-          <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" />
-            <div class="card-body">
+        <br />
 
-              <p class="card-text">{{ job.summary }}</p>
+        <p class="text-center"><img src="{{ blog.image.url }}"/></p>
 
-            </div>
-          </div>
-          </div>
-        {% endfor %}
+        <br />
 
-      </div>
+        {{ blog.body }}
+
+        <br />
+
 
     </div>
-  </div>
 
 </main>
 
+<br />
+<br />
+<br />
+
 <footer class="text-muted">
-  <div class="container text-center">
+    <div class="container text-center">
 
-    <p> © Russel {% now "Y" %} </p>
+        <p> © Russel {% now "Y" %} </p>
 
-  </div>
+    </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
